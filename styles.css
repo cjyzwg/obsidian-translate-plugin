@@ -6,3 +6,12 @@ available in the app when your plugin is enabled.
 If your plugin does not need CSS, delete this file.
 
 */
+.translate-donation {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+.translate-donate-button {
+    margin: 10px;
+}
