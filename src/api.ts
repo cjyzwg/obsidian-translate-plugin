@@ -3,7 +3,7 @@ import { ManifestJson, TranslateParams }  from './model'
 import { settingsStore } from './settings';
 import { get } from 'svelte/store';
 
-// import Util from './util';
+import Util from './util';
 
 export default class Api {
 	
@@ -36,8 +36,8 @@ export default class Api {
 	}
 
 	async getAllPlugins(): Promise<ManifestJson[]>{
-		// const pluginDirName = (new Util()).getPluginFolder();
-		const pluginDirName = "/Users/cj/Documents/code/goproject/src/leetcode/localization"
+		const pluginDirName = (new Util()).getPluginFolder();
+		// const pluginDirName = "/Users/cj/Documents/code/goproject/src/leetcode/localization"
 		const arr = [];
 		const body = {
 			"plugin_dir_name":pluginDirName,

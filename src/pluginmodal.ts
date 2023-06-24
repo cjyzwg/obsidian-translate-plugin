@@ -1,6 +1,6 @@
 import { App, Modal, Notice, Setting } from "obsidian";
 import Api from "./api";
-// import Util from "./util";
+import Util from "./util";
 import { TranslateParams } from "./model";
 
 export class PluginModal extends Modal {
@@ -15,8 +15,8 @@ export class PluginModal extends Modal {
     const allPlugins = await api.getAllPlugins();
     console.log(allPlugins)
     const { contentEl } = this;
-    // const pluginDirName = (new Util()).getPluginFolder();
-    const pluginDirName = "/Users/cj/Documents/code/goproject/src/leetcode/localization"
+    const pluginDirName = (new Util()).getPluginFolder();
+    // const pluginDirName = "/Users/cj/Documents/code/goproject/src/leetcode/localization"
     const tp: TranslateParams ={
       plugin_dir_name: pluginDirName,
       action: "",
