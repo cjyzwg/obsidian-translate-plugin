@@ -1,23 +1,22 @@
-import { PluginModal } from 'Modal';
-import { SampleSettingTab,TranslatePluginSettings,DEFAULT_SETTINGS } from './settings';
-import { Editor, MarkdownView, Notice, Plugin } from 'obsidian';
+import { PluginModal } from './src/pluginmodal';
+import { settingsStore } from './src/settings';
+import { TranslateSettingTab } from './src/settingTab';
+import { Editor, MarkdownView, Plugin } from 'obsidian';
 
 // Remember to rename these classes and interfaces!
 
 
 
 export default class MyPlugin extends Plugin {
-	settings: TranslatePluginSettings;
+	
 
 	async onload() {
-		await this.loadSettings();
+		settingsStore.initialise(this);
 
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('languages', 'Translate Plugin', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
-			new PluginModal(this.app, (result) => {
-				new Notice(`Hello, ${result}!`);
-			}).open();
+			new PluginModal(this.app).open();
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
@@ -32,9 +31,7 @@ export default class MyPlugin extends Plugin {
 			name: 'Open sample modal (simple)',
 			callback: () => {
 				// new SampleModal(this.app).open();
-				new PluginModal(this.app, (result) => {
-					new Notice(`Hello, ${result}!`);
-				}).open();
+				new PluginModal(this.app).open();
 			}
 		});
 
@@ -49,7 +46,7 @@ export default class MyPlugin extends Plugin {
 		});
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
-		this.addSettingTab(new SampleSettingTab(this.app, this));
+		this.addSettingTab(new TranslateSettingTab(this.app, this));
 
 		// If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)
 		// Using this function will automatically remove the event listener when this plugin is disabled.
@@ -65,13 +62,6 @@ export default class MyPlugin extends Plugin {
 
 	}
 
-	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-	}
-
-	async saveSettings() {
-		await this.saveData(this.settings);
-	}
 }
 
 
