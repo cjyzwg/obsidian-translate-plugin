@@ -1,95 +1,60 @@
-# Obsidian Sample Plugin
+作者：阿三 
+博客：[Nockygo](https://blog.asan123.top) 
+公众号：阿三爱吃瓜 
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+> 持续不断记录、整理、分享，让自己和他人一起成长！😊
 
-This project uses Typescript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
+## 前言
 
-**Note:** The Obsidian API is still in early alpha and is subject to change at any time!
+自从用上了Obsidian，就爱上了它，不仅仅是因为它免费，更重要的是它的插件生态很nice，作为一名野生程序猿，流畅不卡是标配，开源那更是极好的，一个好的插件能让我折腾很久，而且还允许我自行去编写插件，一个不满意我就可以去魔改源码😄。
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+## 插件设置英文看着头疼？
 
-## First time developing plugins?
+爱折腾插件，没事就去搜索插件提高我的工作效率，久而久之我的插件就会有很多，虽然本猿平时看代码比较多，但是英文的水平还是薄弱的，而很多插件都是国外的大神开发的，设置英文看着头疼，而且obsidian不允许鼠标设置划线，这就很头疼了，往论坛里一看有是有翻译的插件，但是都没有设置翻译的插件，一怒之下自己去学了ts，趁着端午这几天放假，在家做了这款设置翻译插件。
 
-Quick starting guide for new plugin devs:
+## 使用说明
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+> 由于还没上架obsidian，我就在github上开源了，ob不允许获取插件列表，所以我就只能本地起一个监听服务来获取插件，同时用了有道翻译，当然是因为可以免费（白piao）！！😛，还不用注册接口账号，（当然也有试过百度翻译，主要是翻译频率限制的挺高，影响翻译的时间）
 
-## Releasing new releases
+废话不多说了，正片开始～
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+### 1. 打开translate软件
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+![](assets/1.png)
 
-## Adding your plugin to the community plugin list
+打开我为你准备的这个软件，看到Made by Nockygo 那就对了～
 
-- Check https://github.com/obsidianmd/obsidian-releases/blob/master/plugin-review.md
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+### 2.translate插件设置
 
-## How to use
+打开obsidian中的translate插件，端口可以不用动，测试连接下，如果成功，那么就可以下一步操作了，如果失败，可以联系我
 
-- Clone this repo.
-- `npm i` or `yarn` to install dependencies
-- `npm run dev` to start compilation in watch mode.
+![](assets/2.png)
 
-## Manually installing the plugin
+### 3. 一键翻译
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+打开obsidian左侧有个翻译的按钮，点击一键翻译或者选择你想翻译的插件，等待左侧框不跳动了，同时obsidian会有个翻译成功的提示，那就说明翻译结束了，然后重启obsidian
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+![](assets/3.png)
 
-## Funding URL
+![](assets/4.png)
 
-You can include funding URLs where people who use your plugin can financially support it.
+我们用dateview测试下，是不是翻译了？😎😎
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+![](assets/5.png)
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
+### 4. 一键还原
 
-If you have multiple URLs, you can also do:
+同样的道理，当你觉得翻译的让你不舒服，那你可以选择一键还原或者你想还原的插件，等待有个还原成功的提示，你就可以重启obsidian了～
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+![](assets/6.png)
 
-## API Documentation
+同样打开dataview，英文又神奇的回来了😁😁
 
-See https://github.com/obsidianmd/obsidian-api
+![](assets/7.png)
+
+
+## 总结
+
+插件开发的时间消耗的不是很长，翻译的效果也达到了预期的目的，当然后续如果可以接成百度翻译也当然可以的，同时如果能够翻译成多国语言，那岂不是更完美，这个是后话，主要还得看看空闲的时间咯！
+
+如果你需要这个插件，找到「阿三爱吃瓜」公众号发送“翻译”，即可获得。
