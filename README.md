@@ -18,7 +18,7 @@
 
 **注意：汉化插件由两部分组成：一个是插件，另一个是translate软件。插件本身是开源的，但是translate软件是收费的。** 
 
-1、插件本身是开源的，找到「阿三爱吃瓜」公众号发送“翻译”，就可以下载，或者打开github地址：https://github.com/cjyzwg/obsidian-translate-plugin，下载release版本即可
+1、插件本身是开源的，找到「阿三爱吃瓜」公众号发送“翻译”，就可以下载，或者打开github地址：[obsidian-translate-plugin](https://github.com/cjyzwg/obsidian-translate-plugin)，下载release版本即可
 
 2、translate软件是收费的，其中translate.exe 是windows版本，translate是mac版本，链接地址为：https://mbd.pub/o/bread/mbd-ZJqalJ5y
 
