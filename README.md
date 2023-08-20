@@ -16,6 +16,12 @@
 
 > 由于还没上架obsidian，我就在github上开源了，ob不允许获取插件列表，所以我就只能本地起一个监听服务来获取插件，同时用了有道翻译，当然是因为可以免费（白piao）！！😛，还不用注册接口账号，（当然也有试过百度翻译，主要是翻译频率限制的挺高，影响翻译的时间）
 
+**注意：汉化插件由两部分组成：一个是插件，另一个是translate软件。插件本身是开源的，但是translate软件是收费的。** 
+
+1、插件本身是开源的，找到「阿三爱吃瓜」公众号发送“翻译”，就可以下载，或者打开github地址：https://github.com/cjyzwg/obsidian-translate-plugin，下载release版本即可
+
+2、translate软件是收费的，其中translate.exe 是windows版本，translate是mac版本，链接地址为：https://mbd.pub/o/bread/mbd-ZJqalJ5y
+
 废话不多说了，正片开始～
 
 ### 1. 打开translate软件
@@ -57,7 +63,3 @@
 
 插件开发的时间消耗的不是很长，翻译的效果也达到了预期的目的，当然后续如果可以接成百度翻译也当然可以的，同时如果能够翻译成多国语言，那岂不是更完美，这个是后话，主要还得看看空闲的时间咯！
 
-**注意：汉化插件由两部分组成：一个是插件，另一个是translate软件。插件本身是开源的，但是translate软件是收费的。** 
-
-1、插件本身是开源的，地址是：https://github.com/cjyzwg/obsidian-translate-plugin，下载release版本即可，或者找到「阿三爱吃瓜」公众号发送“翻译”，就可以下载链接。
-2、translate软件是收费的，链接地址为：https://mbd.pub/o/bread/mbd-ZJqalJ5y
