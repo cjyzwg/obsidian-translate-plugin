@@ -3,10 +3,14 @@ import { writable } from 'svelte/store';
 import MyPlugin from "../main";
 interface TranslatePluginSettings {
 	translatePort: string;
+	apiKey: string;
+	apiSecret: string;
 }
 
 const DEFAULT_SETTINGS: TranslatePluginSettings = {
 	translatePort: "1188",
+	apiKey:"",
+	apiSecret:"",
 }
 
 const createSettingsStore = () => {
@@ -39,13 +43,27 @@ const createSettingsStore = () => {
 		});
 	};
 	
+	const setApiKey = (apiKey: string) => {
+		store.update((state) => {
+			state.apiKey = apiKey;	
+			return state;
+		});
+	};
 
+	const setApiSecret = (apiSecret: string) => {
+		store.update((state) => {
+			state.apiSecret = apiSecret;	
+			return state;
+		});
+	};
 
 	return {
 		subscribe: store.subscribe,
 		initialise,
 		actions: {
-			setTranslatePort
+			setTranslatePort,
+			setApiKey,
+			setApiSecret
 		}
 	};
 };

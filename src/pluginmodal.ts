@@ -2,6 +2,8 @@ import { App, Modal, Notice, Setting } from "obsidian";
 import Api from "./api";
 import Util from "./util";
 import { TranslateParams } from "./model";
+import { settingsStore } from './settings';
+import { get } from 'svelte/store';
 
 export class PluginModal extends Modal {
   result: string;
@@ -11,6 +13,7 @@ export class PluginModal extends Modal {
   }
 
   async onOpen() {
+    const settings = get(settingsStore)
     const api = new Api();
     const allPlugins = await api.getAllPlugins();
     console.log(allPlugins)
@@ -21,7 +24,9 @@ export class PluginModal extends Modal {
       plugin_dir_name: pluginDirName,
       action: "",
       all: false,
-      plugin_ids: []
+      plugin_ids: [],
+      api_key:settings.apiKey,
+      api_secret:settings.apiSecret,
     }
     contentEl.createEl("h1", { text: "所有插件列表" });
 

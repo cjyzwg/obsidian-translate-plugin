@@ -3,6 +3,8 @@ import { App, Notice, PluginSettingTab, Setting } from "obsidian";
 import Api from "./api";
 import { settingsStore } from './settings';
 import { get } from 'svelte/store';
+import { t } from "./lang/helper";
+import { fragWithHTML } from "./util";
 export class TranslateSettingTab extends PluginSettingTab {
 	plugin: MyPlugin;
 
@@ -16,18 +18,21 @@ export class TranslateSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl('h2', {text: '一键翻译设置'});
+		containerEl.createEl('h1', {text: t("TRANSLATE_SETTING")});
 
     this.showListenPort()
     this.showTest()
+
+    this.showApiKey()
+    this.showApiSecret()
     this.showDonation()
         
 	}
   private showListenPort(): void {
     const settings = get(settingsStore)
     new Setting(this.containerEl)
-        .setName("Listen port")
-        .setDesc("Open translate application,input port:")
+        .setName(t("LISTEN_PORT"))
+        .setDesc(t("OPEN_TRANSLATE_APP"))
         .addText((text) =>
           text
             .setPlaceholder("1188")
@@ -40,11 +45,11 @@ export class TranslateSettingTab extends PluginSettingTab {
 
   private showTest(): void {
 		new Setting(this.containerEl)
-        .setName("Test software")
-        .setDesc("Test if it can connect with translate application")
+        .setName(t("TEST_SOFTWARE"))
+        .setDesc(t("TEST_IF_CONNECT_DESC"))
         .addButton((button) => {
           return button
-            .setButtonText("测试连接")
+            .setButtonText(t("TEST_CONNECT"))
             .setCta()
             .onClick(async () => {
               const api = new Api()
@@ -53,6 +58,33 @@ export class TranslateSettingTab extends PluginSettingTab {
             });
         });
 	}
+  private showApiKey(): void {
+    const settings = get(settingsStore)
+    this.containerEl.createEl("h1", { text: fragWithHTML(t("APPLY_FOR_YOUDAO_SETTING")) });
+    new Setting(this.containerEl)
+        .setName(t("YOUDAO_API_KEY_NAME"))
+        .setDesc(t("YOUDAO_API_KEY_DESC"))
+        .addText((text) =>
+          text
+            .setValue(settings.apiKey)
+            .onChange(async (value) => {
+              settingsStore.actions.setApiKey(value);
+            })
+        );
+  }
+  private showApiSecret(): void {
+    const settings = get(settingsStore)
+    new Setting(this.containerEl)
+        .setName(t("YOUDAO_API_SECRET_NAME"))
+        .setDesc(t("YOUDAO_API_SECRET_DESC"))
+        .addText((text) =>
+          text
+            .setValue(settings.apiSecret)
+            .onChange(async (value) => {
+              settingsStore.actions.setApiSecret(value);
+            })
+        );
+  }
   private showDonation(): void {
     const div = this.containerEl.createEl('div', {
       cls: 'translate-donation',

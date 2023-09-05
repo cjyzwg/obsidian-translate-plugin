@@ -1,9 +1,9 @@
 {
 	"id": "obsidian-translate-plugin",
-	"name": "ZTranslate Plugin Settings",
+	"name": "Translate Plugin Settings",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "这是把所有插件的设置一键翻译，或选中插件设置翻译的插件",
+	"description": "这是把所有插件的设置一键翻译，或选中插件设置翻译的插件，微信公众号：阿三爱吃瓜",
 	"author": "nockygo",
 	"authorUrl": "https://blog.asan123.top",
 	"fundingUrl": "https://doc.asan123.top",

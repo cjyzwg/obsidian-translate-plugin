@@ -11,4 +11,6 @@ export type TranslateParams =
     action: string;
     all:   boolean;
     plugin_ids: string[];
+    api_key: string;
+    api_secret: string;
 }
